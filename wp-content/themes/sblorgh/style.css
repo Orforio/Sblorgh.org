@@ -768,6 +768,13 @@ img.wp-smiley,
 	margin: 0 auto 0 auto;
 }
 
+.site-content {
+	width: 770px;
+	background-color: #333333;
+	padding: 10px;
+	margin: 0 5px 0 5px;
+}
+
 .site-main .sidebar-container {
 	height: 0;
 	position: absolute;
