@@ -27,14 +27,14 @@
 				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 			</a>
 
-			<div id="navbar" class="navbar">
+			<!--<div id="navbar" class="navbar">
 				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
-					<h3 class="menu-toggle"><?php _e( 'Menu', 'twentythirteen' ); ?></h3>
-					<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentythirteen' ); ?>"><?php _e( 'Skip to content', 'twentythirteen' ); ?></a>
+					<h3 class="menu-toggle"><?php _e( 'Menu', 'sblorgh' ); ?></h3>
+					<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'sblorgh' ); ?>"><?php _e( 'Skip to content', 'sblorgh' ); ?></a>
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 					<?php get_search_form(); ?>
 				</nav><!-- #site-navigation -->
-			</div><!-- #navbar -->
+			<!--</div>--><!-- #navbar -->
 		</header><!-- #masthead -->
 
 		<div id="main" class="site-main">
