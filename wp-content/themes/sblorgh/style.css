@@ -844,31 +844,33 @@ img.wp-smiley,
  */
 
 .main-navigation {
-	clear: both;
-	margin: 0 auto;
-	max-width: 1080px;
-	min-height: 45px;
-	position: relative;
+	background-color: #444444;
+	margin: 0 5px 0 0;
+	width: 195px;
+	float: right;
 }
 
 ul.nav-menu,
 div.nav-menu > ul {
 	margin: 0;
-	padding: 0 40px 0 0;
+	padding: 20px 5px 0 5px;
 }
 
 .nav-menu li {
-	display: inline-block;
-	position: relative;
+/*	display: inline-block;
+	position: relative;*/
+	color: #ffffff;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 1;
+	text-align: right;
+	text-decoration: none;
+	padding: 5px 0 0 0;
 }
 
 .nav-menu li a {
-	color: #141412;
+	color: #ffffff;
 	display: block;
-	font-size: 15px;
-	line-height: 1;
-	padding: 15px 20px;
-	text-decoration: none;
 }
 
 .nav-menu li:hover > a,
@@ -926,20 +928,20 @@ ul.nav-menu li:hover > ul,
 }
 
 /* Navbar */
-.navbar {
-	background-color: #f7f5e7;
-	margin: 0 auto;
-	max-width: 1600px;
+.navbar {	
+	height: 0;
+	position: absolute;
+	top: 0px;
 	width: 100%;
 }
 
-.site-header .search-form {
-	position: absolute;
+.navbar .search-form {
+/*	position: relative;
 	right: 20px;
-	top: 1px;
+	top: 1px;*/
 }
 
-.site-header .search-field {
+.navbar .search-field {
 	background-color: transparent;
 	background-image: url(images/search-icon.png);
 	background-position: 5px center;
@@ -956,7 +958,7 @@ ul.nav-menu li:hover > ul,
 	width: 0;
 }
 
-.site-header .search-field:focus {
+.navbar .search-field:focus {
 	background-color: #fff;
 	border: 2px solid #c3c0ab;
 	cursor: text;
