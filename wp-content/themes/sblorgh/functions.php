@@ -490,6 +490,7 @@ function sblorgh_randomise_footer() {
 	$footertext[4] = 'midnight lashings of chicken soup';
 	$footertext[5] = 'banging tunes';
 	$footertext[6] = 'tons and tons and tons of <a href="http://www.discogs.com/artist/Sota+Fujimori">Sota Fujimori</a>';
+	$footertext[7] = 'Tlentifini Maarhaysu';
 	
 	$randomnumber = rand(1, count($footertext));
 	
