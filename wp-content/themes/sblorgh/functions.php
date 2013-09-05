@@ -94,7 +94,7 @@ add_action( 'wp_enqueue_scripts', 'sblorgh_scripts_styles' );
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function sblorgh_wp_title( $title, $sep ) {
+/*function sblorgh_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() )
@@ -114,7 +114,7 @@ function sblorgh_wp_title( $title, $sep ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'sblorgh_wp_title', 10, 2 );
+add_filter( 'wp_title', 'sblorgh_wp_title', 10, 2 );*/
 
 /**
  * Registers two widget areas.
@@ -123,7 +123,7 @@ add_filter( 'wp_title', 'sblorgh_wp_title', 10, 2 );
  *
  * @return void
  */
-function sblorgh_widgets_init() {
+/*function sblorgh_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Main Widget Area', 'sblorgh' ),
 		'id'            => 'sidebar-1',
@@ -144,7 +144,7 @@ function sblorgh_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'sblorgh_widgets_init' );
+add_action( 'widgets_init', 'sblorgh_widgets_init' );*/
 
 if ( ! function_exists( 'sblorgh_paging_nav' ) ) :
 /**

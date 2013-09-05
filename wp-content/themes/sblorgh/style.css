@@ -97,7 +97,7 @@ button,
 input,
 select,
 textarea {
-	font-family: Helvetica, "Source Sans Pro", sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -112,7 +112,7 @@ a {
 }
 
 a:visited {
-	color: #ac0404;
+	color: #eb752b;
 }
 
 a:focus {
@@ -121,7 +121,7 @@ a:focus {
 
 a:active,
 a:hover {
-	color: #ea9629;
+	color: #ebaf2b;
 	outline: 0;
 }
 
@@ -136,7 +136,7 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-family: Helvetica, Bitter, Georgia, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	line-height: 1.3;
 }
 
@@ -189,13 +189,13 @@ dfn {
 }
 
 mark {
-	background: #ff0;
-	color: #000;
+	background: #ffff00;
+	color: #000000;
 }
 
 p {
 	margin: 0 0 24px;
-	color: #ffffff;
+	color: #222222;
 }
 
 code,
@@ -212,7 +212,7 @@ samp {
 
 pre {
 	background: #f5f5f5;
-	color: #666;
+	color: #666666;
 	font-family: monospace;
 	font-size: 14px;
 	margin: 20px 0;
@@ -771,7 +771,7 @@ img.wp-smiley,
 
 .site-content {
 	width: 790px;
-	background-color: #333333;
+	background-color: #cccccc/*#333333*/;
 	padding: 10px;
 	margin: 0 5px 0 5px;
 }
@@ -822,7 +822,7 @@ img.wp-smiley,
 }
 
 .site-header .site-title:hover {
-	color:#c0c0c0;
+	color:#eeeeee;
 }
 
 .site-title {
@@ -985,13 +985,13 @@ ul.nav-menu li:hover > ul,
 	width: 100%;
 }
 
-.sidebar .entry-header,
+/*.sidebar .entry-header,
 .sidebar .entry-content,
 .sidebar .entry-summary,
 .sidebar .entry-meta {
 	max-width: 790px;
 	padding: 0;
-}
+}*/
 
 .type-post {
 	border-bottom: 1px solid #222222;
@@ -1019,10 +1019,11 @@ ul.nav-menu li:hover > ul,
 .entry-title {
 	font-weight: normal;
 	margin: 0;
+	color: #222222;
 }
 
 .entry-title a {
-	color: #ffffff;
+	color: #222222;
 }
 
 .entry-title a:hover {
@@ -1041,11 +1042,11 @@ ul.nav-menu li:hover > ul,
 }
 
 .entry-meta a {
-	color: #cccccc;
+	color: #666666;
 }
 
 .entry-meta a:hover {
-	color: #aaaaaa;
+	color: #333333;
 }
 
 .entry-meta > span {
@@ -1726,7 +1727,7 @@ footer.entry-meta {
 .attachment .entry-title {
 	display: inline-block;
 	float: left;
-	font: 300 italic 30px "Source Sans Pro", Helvetica, sans-serif;
+	font: 300 italic 30px Helvetica, Arial, sans-serif;
 	margin: 0;
 }
 
@@ -1848,11 +1849,11 @@ footer.entry-meta {
 }
 
 .navigation a {
-	color: #cccccc;
+	color: #666666;
 }
 
 .navigation a:hover {
-	color: #aaaaaa;
+	color: #333333;
 	text-decoration: none;
 }
 
@@ -2330,10 +2331,10 @@ footer.entry-meta {
  * ----------------------------------------------------------------------------
  */
 
-.site-main .widget-area {
+/*.site-main .widget-area {
 	float: right;
 	width: 175px;
-}
+}*/
 
 
 /**
@@ -2341,7 +2342,7 @@ footer.entry-meta {
  * ----------------------------------------------------------------------------
  */
 
-.widget {
+/*.widget {
 	background-color: #444444;
 	font-size: 14px;
 	-webkit-hyphens: auto;
@@ -2450,7 +2451,7 @@ footer.entry-meta {
  */
 
 .site-footer {
-	color: #333333;
+	color: #cccccc;
 	font-size: 12px;
 	text-align: left;
 	margin: 0 auto 0 auto;
@@ -2463,7 +2464,7 @@ footer.entry-meta {
 }
 
 .site-footer a {
-	color: #333333;
+	color: #ffffff;
 }
 
 /*.site-footer .sidebar-container {
