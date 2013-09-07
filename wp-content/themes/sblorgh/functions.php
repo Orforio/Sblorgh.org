@@ -1,26 +1,4 @@
 <?php
-/**
- * Sets up the content width value based on the theme's design.
- * @see sblorgh_content_width() for template-specific adjustments.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 604;
-
-/**
- * Sets up theme defaults and registers the various WordPress features that
- * Twenty Thirteen supports.
- *
- * @uses load_theme_textdomain() For translation/localization support.
- * @uses add_editor_style() To add Visual Editor stylesheets.
- * @uses add_theme_support() To add support for automatic feed links, post
- * formats, and post thumbnails.
- * @uses register_nav_menu() To add support for a navigation menu.
- * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
- *
- * @since Twenty Thirteen 1.0
- *
- * @return void
- */
 function sblorgh_setup() {
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -29,16 +7,8 @@ function sblorgh_setup() {
 	// to output valid HTML5.
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
-	/*
-	 * This theme supports all available post formats by default.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
-	) );
-
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Navigation Menu', 'sblorgh' ) );
+	register_nav_menu( 'primary', 'Sidebar Menu' );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
@@ -46,37 +16,22 @@ function sblorgh_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 604, 270, true );
-
-	// This theme uses its own gallery styles.
-	add_filter( 'use_default_gallery_style', '__return_false' );
 }
 add_action( 'after_setup_theme', 'sblorgh_setup' );
 
 /**
  * Enqueues scripts and styles for front end.
  *
- * @since Twenty Thirteen 1.0
- *
- * @return void
  */
 function sblorgh_scripts_styles() {
-	// Adds JavaScript to pages with the comment form to support sites with
-	// threaded comments (when in use).
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
-
-	// Adds Masonry to handle vertical alignment of footer widgets.
-	if ( is_active_sidebar( 'sidebar-1' ) )
-		wp_enqueue_script( 'jquery-masonry' );
-
 	// Loads JavaScript file with functionality specific to Twenty Thirteen.
-	wp_enqueue_script( 'sblorgh-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
+//	wp_enqueue_script( 'sblorgh-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array(), '2013-07-18' );
+	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array(), '2013-09-07' );
 
 	// Loads the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'sblorgh-ie', get_template_directory_uri() . '/css/ie.css', array( 'sblorgh-style' ), '2013-07-18' );
@@ -115,36 +70,6 @@ add_action( 'wp_enqueue_scripts', 'sblorgh_scripts_styles' );
 	return $title;
 }
 add_filter( 'wp_title', 'sblorgh_wp_title', 10, 2 );*/
-
-/**
- * Registers two widget areas.
- *
- * @since Twenty Thirteen 1.0
- *
- * @return void
- */
-/*function sblorgh_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'sblorgh' ),
-		'id'            => 'sidebar-1',
-		'description'   => __( 'Appears in the footer section of the site.', 'sblorgh' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Secondary Widget Area', 'sblorgh' ),
-		'id'            => 'sidebar-2',
-		'description'   => __( 'Appears on posts and pages in the sidebar.', 'sblorgh' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-}
-add_action( 'widgets_init', 'sblorgh_widgets_init' );*/
 
 if ( ! function_exists( 'sblorgh_paging_nav' ) ) :
 /**
@@ -190,11 +115,10 @@ function sblorgh_post_nav() {
 		return;
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'sblorgh' ); ?></h1>
 		<div class="nav-links">
 
-			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'sblorgh' ) ); ?>
-			<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'sblorgh' ) ); ?>
+			<?php previous_post_link( '%link', '<div class="meta-nav genericon genericon-leftarrow"></div> %title' ); ?>
+			<?php next_post_link( '%link', '%title <div class="meta-nav genericon genericon-rightarrow"></div>' ); ?>
 
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -348,75 +272,6 @@ function sblorgh_get_link_url() {
 	return ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
 }
 
-/**
- * Extends the default WordPress body classes.
- *
- * Adds body classes to denote:
- * 1. Single or multiple authors.
- * 2. Active widgets in the sidebar to change the layout and spacing.
- * 3. When avatars are disabled in discussion settings.
- *
- * @since Twenty Thirteen 1.0
- *
- * @param array $classes A list of existing body class values.
- * @return array The filtered body class list.
- */
-function sblorgh_body_class( $classes ) {
-	if ( ! is_multi_author() )
-		$classes[] = 'single-author';
-
-	if ( is_active_sidebar( 'sidebar-2' ) && ! is_attachment() && ! is_404() )
-		$classes[] = 'sidebar';
-
-	if ( ! get_option( 'show_avatars' ) )
-		$classes[] = 'no-avatars';
-
-	return $classes;
-}
-add_filter( 'body_class', 'sblorgh_body_class' );
-
-/**
- * Adjusts content_width value for video post formats and attachment templates.
- *
- * @since Twenty Thirteen 1.0
- *
- * @return void
- */
-function sblorgh_content_width() {
-	global $content_width;
-
-	if ( is_attachment() )
-		$content_width = 724;
-	elseif ( has_post_format( 'audio' ) )
-		$content_width = 484;
-}
-add_action( 'template_redirect', 'sblorgh_content_width' );
-
-/**
- * Add postMessage support for site title and description for the Customizer.
- *
- * @since Twenty Thirteen 1.0
- *
- * @param WP_Customize_Manager $wp_customize Customizer object.
- * @return void
- */
-function sblorgh_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-}
-add_action( 'customize_register', 'sblorgh_customize_register' );
-
-/**
- * Binds JavaScript handlers to make Customizer preview reload changes
- * asynchronously.
- *
- * @since Twenty Thirteen 1.0
- */
-function sblorgh_customize_preview_js() {
-	wp_enqueue_script( 'sblorgh-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
-}
-add_action( 'customize_preview_init', 'sblorgh_customize_preview_js' );
 
 /**
  * Loads stylesheets and scripts

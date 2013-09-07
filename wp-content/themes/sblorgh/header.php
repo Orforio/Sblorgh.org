@@ -11,7 +11,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width">
-	<title><?php bloginfo( 'name' ); ?> | <?php is_home() ? bloginfo( 'description' ) : wp_title( '' ); ?></title>
+	<title><?php bloginfo( 'name' ); ?> | <?php is_home() ? bloginfo( 'description' ) : wp_title(''); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<!--[if lt IE 9]>
@@ -21,19 +21,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<div id="page" class="hfeed site">
-		<header id="masthead" class="site-header" role="banner">
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-			</a>
-		</header><!-- #masthead -->
 
-		<div id="main" class="site-main">
-			<div id="navbar" class="navbar">
-					<nav id="site-navigation" class="navigation main-navigation" role="navigation">
-						<h3 class="menu-toggle">Menu</h3>
-						<a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>
-						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-						<?php get_search_form(); ?>
-					</nav><!-- #site-navigation -->
-				</div><!-- #navbar -->
+<div class="container">
+	<header class="page-header" id="<?php sblorgh_randomise_header(); ?>">
+		<div class="headertext">   
+               <h1>sblorgh.</h1>
+		</div>
+	</header>
+	<div class="content">
