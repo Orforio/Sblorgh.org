@@ -1,0 +1,26 @@
+// Page building blocks
+
+@mixin page-container($top: 0, $right: auto, $bottom: 0, $left: auto) {
+	width: $page-width;
+	margin: $top $right $bottom $left;
+}
+
+// Vendor-specific properties
+
+@mixin box-shadow($box-shadow...) {
+	-webkit-box-shadow: $box-shadow;
+	-moz-box-shadow: $box-shadow;
+	box-shadow: $box-shadow;
+}
+
+@mixin box-sizing($box-sizing: border-box) {
+	-webkit-box-sizing: $box-sizing;
+	-moz-box-sizing: $box-sizing;
+	box-sizing: $box-sizing;
+}
+
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	transition: $transition;
+}

@@ -9,10 +9,17 @@ Version: 0.3
 Tags: gray, two-columns, right-sidebar
 */
 
+// *****
 // Page Defaults
+// *****
 
 $page-background: #222222;
-$text-colour: /*#222222*/red;
+$page-width: 1000px;
+$content-background: #cccccc;
+$content-width: 800px;
+$menu-background: #444444;
+$menu-width: 185px;
+$text-colour: $page-background;
 
 $theme-red: #cc0033;
 $theme-orange: #cc6600;
@@ -20,6 +27,8 @@ $theme-lightgreen: #cccc06;
 $theme-darkgreen: #99cc66;
 $theme-lightblue: #00cccc;
 $theme-darkblue: #333399;
+
+@import 'mixins';
 
 html {
 	font-size: 100%;
@@ -33,17 +42,34 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+a {
+	text-decoration: none;
+	@include transition(all .2s linear);
+}
+
+.screen-reader-text {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important; 
+	width: 1px !important; 
+	overflow: hidden;
+}
+
+// *****
 // Header
+// *****
+
 .page-header {
+	@include page-container(20px);
 	position: relative;
-	width: 1000px;
 	height: 200px;
-	margin: 20px auto 0px auto;
 	background-repeat: no-repeat;
-	$box-shadow: 0px 5px 25px $page-background;
-	-webkit-box-shadow: $box-shadow;
-	-moz-box-shadow: $box-shadow;
-	box-shadow: $box-shadow;
+	z-index: 1;
+	@include box-shadow(0px 5px 25px $page-background);
+	
 	&#header-red {
 		background-image: url(images/headers/header_red.jpg);
 	}
@@ -62,4 +88,130 @@ body {
 	&#header-darkblue {
 		background-image: url(images/headers/header_darkblue.jpg);
 	}
+	
+	.header-text {
+		position: absolute;
+		bottom: -21px;
+		right: -2px;
+		
+		h1 {
+			font-size: 140px;
+			letter-spacing: -7px;
+			line-height: 1;
+			color: #ffffff;
+			margin: 0;
+		}
+	}
+}
+
+// *****
+// Navigation
+// *****
+
+.menu-right {
+	width: $menu-width;
+	background-color: #444444;
+	padding: 40px 10px 10px 10px;
+	margin: 0 5px 0 5px;
+	position: absolute;
+	right: 0;
+	@include box-sizing;
+	
+	ul {
+		list-style-type: none;
+		border-bottom: 1px solid $page-background;
+		padding: 0 0 10px 0;
+		margin: 0;
+//		width: 100%;
+	}
+	
+	li {
+		font-size: 28px;
+		font-weight: bold;
+		color: #ffffff;
+		text-align: right;
+		line-height: 1;
+		width: 100%;
+		display: inline-block;
+		
+		a {
+		    display: block;
+		    color: #ffffff;
+		    
+		    &:hover,
+		    &:focus {
+		    	color: #000000;
+		    }
+		    
+		    &:active {
+			    background-color: #ffffff !important; // TODO: Make this better
+		    }
+		}
+		
+		&.current-menu-item a {
+			color: #000000;
+			background-color: #ffffff; // TODO: Make this better
+		}
+	}
+	
+	.search-field {
+		font-size: 28px;
+		color: #ffffff;
+		font-weight: bold;
+		text-align: right;
+		background-color: $menu-background;
+		border: none;
+		width: $menu-width - 20;
+	}
+}
+
+// TODO: Make this better
+a {
+	&:hover,
+	&:focus {
+		#menu-item-706 & {
+			background-color: $theme-red;
+		}
+		#menu-item-707 & {
+			background-color: $theme-orange;
+		}
+		#menu-item-708 & {
+			background-color: $theme-lightgreen;
+		}
+		#menu-item-709 & {
+			background-color: $theme-darkgreen;
+		}
+		#menu-item-710 & {
+			background-color: $theme-lightblue;
+		}
+	}
+}
+
+// *****
+// Main Content
+// *****
+
+.main-container {
+	@include page-container;
+	position: relative;
+}
+
+.main-content {
+	width: $content-width;
+	background-color: $content-background;
+	padding: 10px;
+	margin: 0 5px 0 5px;
+	@include box-sizing;
+}
+
+// *****
+// Footer
+// *****
+
+.page-footer {
+	@include page-container;
+	font-size: 12px;
+	color: $content-background;
+	padding: 0 0 0 15px;
+	@include box-sizing;
 }
