@@ -129,12 +129,6 @@ endif;
 if ( ! function_exists( 'sblorgh_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
- *
- * Create your own sblorgh_entry_meta() to override in a child theme.
- *
- * @since Twenty Thirteen 1.0
- *
- * @return void
  */
 function sblorgh_entry_meta() {
 	if ( is_sticky() && is_home() && ! is_paged() )
@@ -154,7 +148,7 @@ function sblorgh_entry_meta() {
 	if ( $tag_list ) {
 		echo '<span class="tags-links">' . $tag_list . '</span>';
 	}
-
+/*
 	// Post author
 	if ( 'post' == get_post_type() ) {
 		printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
@@ -162,7 +156,7 @@ function sblorgh_entry_meta() {
 			esc_attr( sprintf( __( 'View all posts by %s', 'sblorgh' ), get_the_author() ) ),
 			get_the_author()
 		);
-	}
+	}*/
 }
 endif;
 
@@ -185,7 +179,7 @@ function sblorgh_entry_date( $echo = true ) {
 
 	$date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
 		esc_url( get_permalink() ),
-		esc_attr( sprintf( __( 'Permalink to %s', 'sblorgh' ), the_title_attribute( 'echo=0' ) ) ),
+		esc_attr( sprintf( 'Permalink to %s', the_title_attribute( 'echo=0' ) ) ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( sprintf( $format_prefix, get_post_format_string( get_post_format() ), get_the_date() ) )
 	);

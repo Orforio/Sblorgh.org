@@ -43,8 +43,18 @@ body {
 }
 
 a {
+	color: $text-colour;
 	text-decoration: none;
 	@include transition(all .2s linear);
+	
+	&:hover,
+	&:focus {
+		color: #333333;
+	}
+	
+	&:active {
+		color: #000000;
+	}
 }
 
 .screen-reader-text {
@@ -56,6 +66,18 @@ a {
 	height: 1px !important; 
 	width: 1px !important; 
 	overflow: hidden;
+}
+
+.group {	// Clearfix
+  zoom: 1;
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 // *****
@@ -96,10 +118,10 @@ a {
 		
 		h1 {
 			font-size: 140px;
+			font-weight: bold;
 			letter-spacing: -7px;
 			line-height: 1;
 			color: #ffffff;
-			margin: 0;
 		}
 	}
 }
@@ -202,6 +224,57 @@ a {
 	padding: 10px;
 	margin: 0 5px 0 5px;
 	@include box-sizing;
+}
+
+h1 {
+	font-size: 48px;
+	font-weight: normal;
+	color: $text-colour;
+	margin: 0;
+	
+	a {
+		color: $text-colour;
+		
+		&:hover,
+		&:focus {
+			color: #000000;
+			text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888; /* , 0px 7px 2px #999999;*/
+		}
+	}
+}
+
+a {
+
+	&:before {
+		
+		.date & {
+			@extend %genericons;
+			content: "\f303";
+		}
+		
+		.comments-link & {
+			@extend %genericons;
+			content: "\f300";
+		}
+		
+		.edit-link & {
+			@extend %genericons;
+			content: "\f411";
+		}
+	}
+	
+	&:first-child:before {
+		
+		.categories-links & {
+			@extend %genericons;
+			content: "\f301";
+		}
+		
+		.tags-links & {
+			@extend %genericons;
+			content: "\f302";
+		}
+	}
 }
 
 // *****

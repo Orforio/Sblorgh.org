@@ -1,5 +1,11 @@
 // Page building blocks
 
+%genericons {
+	display: inline-block;
+	font: normal 16px/1 "Genericons";
+	vertical-align: text-bottom;
+}
+
 @mixin page-container($top: 0, $right: auto, $bottom: 0, $left: auto) {
 	width: $page-width;
 	margin: $top $right $bottom $left;
