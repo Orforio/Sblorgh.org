@@ -1,0 +1,65 @@
+// Comment header - required by WordPress
+/*
+Theme Name: Sblorgh.org
+Theme URI: http://www.sblorgh.org/
+Author: Richard Whittaker
+Author URI: http://www.sblorgh.org/
+Description: The sblorgh.org theme.
+Version: 0.3
+Tags: gray, two-columns, right-sidebar
+*/
+
+// Page Defaults
+
+$page-background: #222222;
+$text-colour: /*#222222*/red;
+
+$theme-red: #cc0033;
+$theme-orange: #cc6600;
+$theme-lightgreen: #cccc06;
+$theme-darkgreen: #99cc66;
+$theme-lightblue: #00cccc;
+$theme-darkblue: #333399;
+
+html {
+	font-size: 100%;
+}
+
+body {
+	background-color: $page-background;
+	color: $text-colour;
+	line-height: 1.5;
+	font-family: Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+// Header
+.page-header {
+	position: relative;
+	width: 1000px;
+	height: 200px;
+	margin: 20px auto 0px auto;
+	background-repeat: no-repeat;
+	$box-shadow: 0px 5px 25px $page-background;
+	-webkit-box-shadow: $box-shadow;
+	-moz-box-shadow: $box-shadow;
+	box-shadow: $box-shadow;
+	&#header-red {
+		background-image: url(images/headers/header_red.jpg);
+	}
+	&#header-orange {
+		background-image: url(images/headers/header_orange.jpg);
+	}
+	&#header-lightgreen {
+		background-image: url(images/headers/header_lightgreen.jpg);
+	}
+	&#header-darkgreen {
+		background-image: url(images/headers/header_darkgreen.jpg);
+	}
+	&#header-lightblue {
+		background-image: url(images/headers/header_lightblue.jpg);
+	}
+	&#header-darkblue {
+		background-image: url(images/headers/header_darkblue.jpg);
+	}
+}

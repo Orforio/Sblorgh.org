@@ -1,299 +1,40 @@
 /*
-Theme Name: Sblorgh New
+Theme Name: Sblorgh.org
 Theme URI: http://www.sblorgh.org/
 Author: Richard Whittaker
 Author URI: http://www.sblorgh.org/
 Description: The sblorgh.org theme.
-Version: 0.2
+Version: 0.3
 Tags: gray, two-columns, right-sidebar
 */
-
-* {
-	margin: 0px;
-	padding: 0px;
-}
-
 html {
-	font-size: 100%;
-}
+  font-size: 100%; }
 
 body {
-	background-color: #222222;
-	color: #222222;
-	line-height: 1.5;
-	-webkit-font-smoothing: antialiased;
-}
-
-article.withspacer {
-	border-bottom: 1px solid #222222;
-	margin-bottom: 5px;
-}
+  background-color: #222222;
+  color: red;
+  line-height: 1.5;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; }
 
 .page-header {
-	position: relative;
-	width: 1000px;
-	height: 200px;
-	margin: 20px auto 0px auto;
-	background-repeat: no-repeat;
-	box-shadow: 0px 5px 25px #222222
-}
-
-#header-red {
-	background-image: url(images/headers/header_red.jpg);
-}
-
-#header-orange {
-	background-image: url(images/headers/header_orange.jpg);
-}
-
-#header-lightgreen {
-	background-image: url(images/headers/header_lightgreen.jpg);
-}
-
-#header-darkgreen {
-	background-image: url(images/headers/header_darkgreen.jpg);
-}
-
-#header-lightblue {
-	background-image: url(images/headers/header_lightblue.jpg);
-}
-
-#header-darkblue {
-	background-image: url(images/headers/header_darkblue.jpg);
-}
-
-.headertext {
-	position: absolute;
-	bottom: -21px;
-	right: -2px;
-}
-
-.headertext h1 {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 140px;
-	letter-spacing: -7px;
-	line-height: 1;
-	color: #ffffff;
-}
-
-a,
-a:hover,
-a:active,
-a:visited {
-	text-decoration: none;
-}
-
-p {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	margin: 5px 0px 10px 0px;
-}
-
-.container {
-	width: 1000px;
-	margin: 0 auto 0 auto;
-}
-
-.content {
-	width: 770px;
-	background-color: #cccccc;
-	padding: 10px;
-	margin: 0px 5px 0px 5px;
-	float: left;
-}
-
-.entry-title {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 48px;
-	font-weight: normal;
-	color: #222222;
-}
-
-.entry-title a,
-.entry-title a:visited {
-	color: #222222;
-}
-
-.entry-title a:hover,
-.entry-title a:active {
-	color: #000000;
-}
-
-#contentbox h3 {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1.2em;
-	letter-spacing: -0.05em;
-	line-height: 1.2em;
-	color: #dddddd;
-}
-
-#contentbox h3 a,
-#contentbox h3 a:visited {
-	color: #cccccc;
-}
-
-#contentbox h3 a:hover,
-#contentbox h3 a:active {
-	color: #aaaaaa;
-}
-
-#contentbox img {
-	float: left;
-	margin: 5px 10px 5px 0px;
-}
-
-#contentbox p a {
-	color: #ce965e;
-}
-
-#contentbox p a:hover,
-#contentbox p a:active {
-	color: #cc6600;
-}
-
-#contentbox ol {
-	list-style-type: decimal-leading-zero;
-	list-style-position: inside;
-}
-
-#contentbox ul {
-	list-style-type: square;
-	list-style-position: inside;
-}
-
-#contentbox li {
-	font-family: "Museo Sans", Helvetica, Arial, sans-serif;
-	font-size: 1.4em;
-	line-height: 1.2em;
-	color: #ffffff;
-}
-
-#postnavigation {
-	width: 100%;
-	text-align: center;
-	padding: 5px 0px 0px 0px;
-	clear: both;
-}
-
-#postnavigation p {
-	margin: 0px;
-}
-
-#postnavigation p a,
-#postnavigation p a:visited {
-	color: #cccccc;
-}
-
-#postnavigation p a:hover,
-#postnavigation p a:active {
-	color: #aaaaaa;
-}
-
-.menubar {
-	width: 175px;
-	background-color: #444444;
-	padding: 20px 10px 10px 10px;
-	margin: 0 5px 0 0;
-	float: right;
-}
-
-.menubar ul {
-	list-style-type: none;
-	border-bottom: 1px solid #222222;
-	padding: 0px 0px 5px 0px;
-	width: 100%;
-}
-
-.menubar li {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 28px;
-	font-weight: bold;
-	color: #ffffff;
-	text-align: right;
-	line-height: 1;
-	width: 100%;
-	display: inline-block;
-}
-
-.menubar li a {
-	display: block;
-}
-
-.menubar li a,
-.menubar li a:visited {
-	color: #ffffff;
-}
-
-
-.menubar li a:hover,
-.menubar li a:active {
-	color: #000000;
-	background-color: #ffffff;
-}
-
-#searchinput {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1em;
-	font-weight: bold;
-	text-align: right;
-	background-color: #444444;
-	border: none;
-}
-
-footer {
-	width: 1000px;
-	background-color: #222222;
-	font-size: 0.6em;
-	color: #333333;
-	text-align: left;
-	margin: 0px;
-	clear: both;
-}
-
-#footer p {
-	font-size: 0.6em;
-	color: #333333;
-	text-align: left;
-	margin: 0px auto 0px 15px;
-}
-
-#footer a,
-#footer a:hover,
-#footer a:active,
-#footer a:visited {
-	color: #333333;
-}
-
-.alignleft {
-	float: left;
-}
-
-.colour-red a:hover,
-.colour-red a:active {
-	color: #cc0033 !important;
-}
-
-.colour-orange a:hover,
-.colour-orange a:active {
-	color: #cc6600 !important;
-}
-
-.colour-lightgreen a:hover,
-.colour-lightgreen a:active {
-	color: #cccc06 !important;
-}
-
-.colour-darkgreen a:hover,
-.colour-darkgreen a:active {
-	color: #99cc66 !important;
-}
-
-.colour-lightblue a:hover,
-.colour-lightblue a:active {
-	color: #00cccc !important;
-}
-
-.colour-darkblue a:hover,
-.colour-darkblue a:active {
-	color: #333399 !important;
-}
+  position: relative;
+  width: 1000px;
+  height: 200px;
+  margin: 20px auto 0px auto;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 0px 5px 25px #222222;
+  -moz-box-shadow: 0px 5px 25px #222222;
+  box-shadow: 0px 5px 25px #222222; }
+  .page-header#header-red {
+    background-image: url(images/headers/header_red.jpg); }
+  .page-header#header-orange {
+    background-image: url(images/headers/header_orange.jpg); }
+  .page-header#header-lightgreen {
+    background-image: url(images/headers/header_lightgreen.jpg); }
+  .page-header#header-darkgreen {
+    background-image: url(images/headers/header_darkgreen.jpg); }
+  .page-header#header-lightblue {
+    background-image: url(images/headers/header_lightblue.jpg); }
+  .page-header#header-darkblue {
+    background-image: url(images/headers/header_darkblue.jpg); }

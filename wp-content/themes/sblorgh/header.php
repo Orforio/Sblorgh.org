@@ -22,10 +22,15 @@
 
 <body <?php body_class(); ?>>
 
-<div class="container">
 	<header class="page-header" id="<?php sblorgh_randomise_header(); ?>">
-		<div class="headertext">   
+		<div class="header-text">   
                <h1>sblorgh.</h1>
 		</div>
 	</header>
-	<div class="content">
+	
+	<div class="main-container">
+		<nav class="menu-right">
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+				<?php get_search_form(); ?>
+		</nav>
+		<section class="main-content">

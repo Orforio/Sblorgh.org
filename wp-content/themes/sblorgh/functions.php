@@ -26,7 +26,7 @@ add_action( 'after_setup_theme', 'sblorgh_setup' );
 function sblorgh_scripts_styles() {
 	// Loads JavaScript file with functionality specific to Twenty Thirteen.
 //	wp_enqueue_script( 'sblorgh-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
-
+	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css', false, '2.1.3' );
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
 
