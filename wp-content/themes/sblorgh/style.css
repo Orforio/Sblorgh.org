@@ -7,7 +7,7 @@ Description: The sblorgh.org theme.
 Version: 0.3
 Tags: gray, two-columns, right-sidebar
 */
-.date a:before, .comments-link a:before, .edit-link a:before, .categories-links a:first-child:before, .tags-links a:first-child:before {
+.date .entry-header a:before, .comments-link .entry-header a:before, .edit-link .entry-header a:before, .categories-links .entry-header a:first-child:before, .tags-links .entry-header a:first-child:before {
   display: inline-block;
   font: normal 16px/1 "Genericons";
   vertical-align: text-bottom; }
@@ -21,6 +21,9 @@ body {
   line-height: 1.5;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased; }
+
+h1 {
+  margin: 0; }
 
 a {
   color: #222222;
@@ -74,16 +77,22 @@ a {
     background-image: url(images/headers/header_lightblue.jpg); }
   .page-header#header-darkblue {
     background-image: url(images/headers/header_darkblue.jpg); }
-  .page-header .header-text {
-    position: absolute;
-    bottom: -21px;
-    right: -2px; }
-    .page-header .header-text h1 {
-      font-size: 140px;
-      font-weight: bold;
-      letter-spacing: -7px;
-      line-height: 1;
-      color: #ffffff; }
+
+.header-text {
+  position: absolute;
+  bottom: -21px;
+  right: -2px; }
+
+.site-title {
+  font-size: 140px;
+  font-weight: bold;
+  letter-spacing: -7px;
+  line-height: 1;
+  color: #ffffff; }
+  .site-title a {
+    color: #ffffff; }
+    .site-title a:hover, .site-title a:focus {
+      color: #eeeeee; }
 
 .menu-right {
   width: 185px;
@@ -103,11 +112,25 @@ a {
   .menu-right li {
     font-size: 28px;
     font-weight: bold;
-    color: #ffffff;
     text-align: right;
     line-height: 1;
     width: 100%;
     display: inline-block; }
+    .menu-right li:nth-child(1) a:hover, .menu-right li:nth-child(1) a:focus {
+      background-color: #cc0033; }
+    .menu-right li:nth-child(2) a:hover, .menu-right li:nth-child(2) a:focus {
+      background-color: #cc6600; }
+    .menu-right li:nth-child(3) a:hover, .menu-right li:nth-child(3) a:focus {
+      background-color: #cccc06; }
+    .menu-right li:nth-child(4) a:hover, .menu-right li:nth-child(4) a:focus {
+      background-color: #99cc66; }
+    .menu-right li:nth-child(5) a:hover, .menu-right li:nth-child(5) a:focus {
+      background-color: #00cccc; }
+    .menu-right li:nth-child(6) a:hover, .menu-right li:nth-child(6) a:focus {
+      background-color: #333399; }
+    .menu-right li.current-menu-item a {
+      color: #000000;
+      background-color: #ffffff; }
     .menu-right li a {
       display: block;
       color: #ffffff; }
@@ -115,9 +138,6 @@ a {
         color: #000000; }
       .menu-right li a:active {
         background-color: #ffffff !important; }
-    .menu-right li.current-menu-item a {
-      color: #000000;
-      background-color: #ffffff; }
   .menu-right .search-field {
     font-size: 28px;
     color: #ffffff;
@@ -127,17 +147,27 @@ a {
     border: none;
     width: 165px; }
 
-#menu-item-706 a:hover, #menu-item-706 a:focus {
-  background-color: #cc0033; }
-#menu-item-707 a:hover, #menu-item-707 a:focus {
-  background-color: #cc6600; }
-#menu-item-708 a:hover, #menu-item-708 a:focus {
-  background-color: #cccc06; }
-#menu-item-709 a:hover, #menu-item-709 a:focus {
-  background-color: #99cc66; }
-#menu-item-710 a:hover, #menu-item-710 a:focus {
-  background-color: #00cccc; }
-
+/*
+a {
+	&:hover,
+	&:focus {
+		#menu-item-706 & {
+			background-color: $theme-red;
+		}
+		#menu-item-707 & {
+			background-color: $theme-orange;
+		}
+		#menu-item-708 & {
+			background-color: $theme-lightgreen;
+		}
+		#menu-item-709 & {
+			background-color: $theme-darkgreen;
+		}
+		#menu-item-710 & {
+			background-color: $theme-lightblue;
+		}
+	}
+}*/
 .main-container {
   width: 1000px;
   margin: 0 auto 0 auto;
@@ -152,27 +182,25 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-h1 {
+.entry-header h1 {
   font-size: 48px;
   font-weight: normal;
-  color: #222222;
-  margin: 0; }
-  h1 a {
+  color: #222222; }
+  .entry-header h1 a {
     color: #222222; }
-    h1 a:hover, h1 a:focus {
+    .entry-header h1 a:hover, .entry-header h1 a:focus {
       color: #000000;
       text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888;
       /* , 0px 7px 2px #999999;*/ }
-
-.date a:before {
+.date .entry-header a:before {
   content: "\f303"; }
-.comments-link a:before {
+.comments-link .entry-header a:before {
   content: "\f300"; }
-.edit-link a:before {
+.edit-link .entry-header a:before {
   content: "\f411"; }
-.categories-links a:first-child:before {
+.categories-links .entry-header a:first-child:before {
   content: "\f301"; }
-.tags-links a:first-child:before {
+.tags-links .entry-header a:first-child:before {
   content: "\f302"; }
 
 .page-footer {

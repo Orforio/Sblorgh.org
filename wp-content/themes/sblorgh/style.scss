@@ -28,6 +28,8 @@ $theme-darkgreen: #99cc66;
 $theme-lightblue: #00cccc;
 $theme-darkblue: #333399;
 
+$themes: $theme-red, $theme-orange, $theme-lightgreen, $theme-darkgreen, $theme-lightblue, $theme-darkblue;
+
 @import 'mixins';
 
 html {
@@ -40,6 +42,10 @@ body {
 	line-height: 1.5;
 	font-family: Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
+}
+
+h1 {
+	margin: 0;
 }
 
 a {
@@ -110,18 +116,28 @@ a {
 	&#header-darkblue {
 		background-image: url(images/headers/header_darkblue.jpg);
 	}
+}	
 	
-	.header-text {
-		position: absolute;
-		bottom: -21px;
-		right: -2px;
+.header-text {
+	position: absolute;
+	bottom: -21px;
+	right: -2px;
+}
+
+.site-title {
+	font-size: 140px;
+	font-weight: bold;
+	letter-spacing: -7px;
+	line-height: 1;
+	color: #ffffff;
+	
+	a {
+	
+		color: #ffffff;
 		
-		h1 {
-			font-size: 140px;
-			font-weight: bold;
-			letter-spacing: -7px;
-			line-height: 1;
-			color: #ffffff;
+		&:hover,
+		&:focus {
+			color: #eeeeee;
 		}
 	}
 }
@@ -150,11 +166,23 @@ a {
 	li {
 		font-size: 28px;
 		font-weight: bold;
-		color: #ffffff;
+//		color: #ffffff;
 		text-align: right;
 		line-height: 1;
 		width: 100%;
 		display: inline-block;
+		
+		@for $i from 1 through length($themes) {
+			&:nth-child(#{$i}) a:hover,
+			&:nth-child(#{$i}) a:focus {
+				background-color: nth($themes, $i);
+			}
+		}
+		
+		&.current-menu-item a {
+			color: #000000;
+			background-color: #ffffff; // TODO: Make this better
+		}
 		
 		a {
 		    display: block;
@@ -162,17 +190,12 @@ a {
 		    
 		    &:hover,
 		    &:focus {
-		    	color: #000000;
+			    color: #000000;
 		    }
 		    
 		    &:active {
-			    background-color: #ffffff !important; // TODO: Make this better
+			    background-color: #ffffff !important;
 		    }
-		}
-		
-		&.current-menu-item a {
-			color: #000000;
-			background-color: #ffffff; // TODO: Make this better
 		}
 	}
 	
@@ -188,6 +211,7 @@ a {
 }
 
 // TODO: Make this better
+/*
 a {
 	&:hover,
 	&:focus {
@@ -207,7 +231,7 @@ a {
 			background-color: $theme-lightblue;
 		}
 	}
-}
+}*/
 
 // *****
 // Main Content
@@ -226,55 +250,57 @@ a {
 	@include box-sizing;
 }
 
-h1 {
-	font-size: 48px;
-	font-weight: normal;
-	color: $text-colour;
-	margin: 0;
+.entry-header {
 	
-	a {
+	h1 {
+		font-size: 48px;
+		font-weight: normal;
 		color: $text-colour;
 		
-		&:hover,
-		&:focus {
-			color: #000000;
-			text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888; /* , 0px 7px 2px #999999;*/
-		}
-	}
-}
-
-a {
-
-	&:before {
-		
-		.date & {
-			@extend %genericons;
-			content: "\f303";
-		}
-		
-		.comments-link & {
-			@extend %genericons;
-			content: "\f300";
-		}
-		
-		.edit-link & {
-			@extend %genericons;
-			content: "\f411";
+		a {
+			color: $text-colour;
+			
+			&:hover,
+			&:focus {
+				color: #000000;
+				text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888; /* , 0px 7px 2px #999999;*/
+			}
 		}
 	}
 	
-	&:first-child:before {
-		
-		.categories-links & {
-			@extend %genericons;
-			content: "\f301";
+	a {
+	
+		&:before {
+			
+			.date & {
+				@extend %genericons;
+				content: "\f303";
+			}
+			
+			.comments-link & {
+				@extend %genericons;
+				content: "\f300";
+			}
+			
+			.edit-link & {
+				@extend %genericons;
+				content: "\f411";
+			}
 		}
 		
-		.tags-links & {
-			@extend %genericons;
-			content: "\f302";
+		&:first-child:before {
+			
+			.categories-links & {
+				@extend %genericons;
+				content: "\f301";
+			}
+			
+			.tags-links & {
+				@extend %genericons;
+				content: "\f302";
+			}
 		}
-	}
+	}	
 }
 
 // *****
