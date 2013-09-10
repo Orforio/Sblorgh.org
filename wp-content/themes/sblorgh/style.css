@@ -7,7 +7,7 @@ Description: The sblorgh.org theme.
 Version: 0.3
 Tags: gray, two-columns, right-sidebar
 */
-.date .entry-header a:before, .comments-link .entry-header a:before, .edit-link .entry-header a:before, .categories-links .entry-header a:first-child:before, .tags-links .entry-header a:first-child:before {
+.date a:before, .comments-link a:before, .edit-link a:before, .categories-links a:first-child:before, .tags-links a:first-child:before {
   display: inline-block;
   font: normal 16px/1 "Genericons";
   vertical-align: text-bottom; }
@@ -20,19 +20,26 @@ body {
   color: #222222;
   line-height: 1.5;
   font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased; }
 
-h1 {
-  margin: 0; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  clear: both; }
 
 a {
-  color: #222222;
+  color: #6f6f6f;
   text-decoration: none;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   transition: all 0.2s linear; }
   a:hover, a:focus {
-    color: #333333; }
+    color: #484848; }
   a:active {
     color: #000000; }
 
@@ -92,7 +99,7 @@ a {
   .site-title a {
     color: #ffffff; }
     .site-title a:hover, .site-title a:focus {
-      color: #eeeeee; }
+      color: rgba(255, 255, 255, 0.8); }
 
 .menu-right {
   width: 185px;
@@ -147,27 +154,6 @@ a {
     border: none;
     width: 165px; }
 
-/*
-a {
-	&:hover,
-	&:focus {
-		#menu-item-706 & {
-			background-color: $theme-red;
-		}
-		#menu-item-707 & {
-			background-color: $theme-orange;
-		}
-		#menu-item-708 & {
-			background-color: $theme-lightgreen;
-		}
-		#menu-item-709 & {
-			background-color: $theme-darkgreen;
-		}
-		#menu-item-710 & {
-			background-color: $theme-lightblue;
-		}
-	}
-}*/
 .main-container {
   width: 1000px;
   margin: 0 auto 0 auto;
@@ -190,18 +176,52 @@ a {
     color: #222222; }
     .entry-header h1 a:hover, .entry-header h1 a:focus {
       color: #000000;
-      text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888;
-      /* , 0px 7px 2px #999999;*/ }
-.date .entry-header a:before {
+      text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888; }
+
+.entry-meta {
+  font-size: 14px; }
+  .entry-meta span {
+    margin: 0 10px 0 0; }
+
+.date a:before {
   content: "\f303"; }
-.comments-link .entry-header a:before {
+.comments-link a:before {
   content: "\f300"; }
-.edit-link .entry-header a:before {
+.edit-link a:before {
   content: "\f411"; }
-.categories-links .entry-header a:first-child:before {
+.categories-links a:first-child:before {
   content: "\f301"; }
-.tags-links .entry-header a:first-child:before {
+.tags-links a:first-child:before {
   content: "\f302"; }
+
+.alignleft {
+  float: left; }
+
+.alignright {
+  float: right; }
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+img.alignleft {
+  margin: 5px 20px 5px 0; }
+
+.wp-caption.alignleft {
+  margin: 5px 10px 5px 0; }
+
+img.alignright {
+  margin: 5px 0 5px 20px; }
+
+.wp-caption.alignright {
+  margin: 5px 0 5px 10px; }
+
+img.aligncenter {
+  margin: 5px auto; }
+
+img.alignnone {
+  margin: 5px 0; }
 
 .page-footer {
   width: 1000px;
