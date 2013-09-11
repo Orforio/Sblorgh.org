@@ -31,7 +31,7 @@ function sblorgh_scripts_styles() {
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array(), '2013-09-07' );
+	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array(), '2013-09-08' );
 
 	// Loads the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'sblorgh-ie', get_template_directory_uri() . '/css/ie.css', array( 'sblorgh-style' ), '2013-07-18' );

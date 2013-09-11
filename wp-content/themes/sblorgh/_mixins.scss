@@ -25,8 +25,9 @@
 	box-sizing: $box-sizing;
 }
 
-@mixin transition($transition...) {
-	-webkit-transition: $transition;
-	-moz-transition: $transition;
-	transition: $transition;
+@mixin transition($property: all, $duration: .2s, $timing: linear) {
+	-webkit-transition: $property $duration $timing;
+	-moz-transition: $property $duration $timing;
+	-o-transition: $property $duration $timing;
+	transition: $property $duration $timing;
 }

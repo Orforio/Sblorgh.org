@@ -33,15 +33,7 @@ h6 {
   clear: both; }
 
 a {
-  color: #6f6f6f;
-  text-decoration: none;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  transition: all 0.2s linear; }
-  a:hover, a:focus {
-    color: #484848; }
-  a:active {
-    color: #000000; }
+  text-decoration: none; }
 
 .screen-reader-text {
   position: absolute !important;
@@ -84,22 +76,24 @@ a {
     background-image: url(images/headers/header_lightblue.jpg); }
   .page-header#header-darkblue {
     background-image: url(images/headers/header_darkblue.jpg); }
-
-.header-text {
-  position: absolute;
-  bottom: -21px;
-  right: -2px; }
-
-.site-title {
-  font-size: 140px;
-  font-weight: bold;
-  letter-spacing: -7px;
-  line-height: 1;
-  color: #ffffff; }
-  .site-title a {
-    color: #ffffff; }
-    .site-title a:hover, .site-title a:focus {
-      color: rgba(255, 255, 255, 0.8); }
+  .page-header .header-text {
+    position: absolute;
+    bottom: -21px;
+    right: -2px; }
+    .page-header .header-text h1.site-title {
+      font-size: 140px;
+      font-weight: bold;
+      letter-spacing: -7px;
+      line-height: 1;
+      color: #ffffff; }
+      .page-header .header-text h1.site-title a {
+        color: #ffffff;
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        transition: all 0.2s linear; }
+        .page-header .header-text h1.site-title a:hover, .page-header .header-text h1.site-title a:focus {
+          color: rgba(255, 255, 255, 0.8); }
 
 .menu-right {
   width: 185px;
@@ -140,7 +134,11 @@ a {
       background-color: #ffffff; }
     .menu-right li a {
       display: block;
-      color: #ffffff; }
+      color: #ffffff;
+      -webkit-transition: all 0.2s linear;
+      -moz-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear; }
       .menu-right li a:hover, .menu-right li a:focus {
         color: #000000; }
       .menu-right li a:active {
@@ -173,13 +171,27 @@ a {
   font-weight: normal;
   color: #222222; }
   .entry-header h1 a {
-    color: #222222; }
+    color: #222222;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear; }
     .entry-header h1 a:hover, .entry-header h1 a:focus {
       color: #000000;
       text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888; }
 
 .entry-meta {
   font-size: 14px; }
+  .entry-meta a {
+    color: #888888;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear; }
+    .entry-meta a:hover, .entry-meta a:focus {
+      color: #555555; }
+    .entry-meta a:active {
+      color: #222222; }
   .entry-meta span {
     margin: 0 10px 0 0; }
 
@@ -193,6 +205,18 @@ a {
   content: "\f301"; }
 .tags-links a:first-child:before {
   content: "\f302"; }
+
+.entry-content a {
+  color: black;
+  text-decoration: underline;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+  .entry-content a:hover, .entry-content a:focus {
+    color: #3c3c3c; }
+  .entry-content a:active {
+    color: #555555; }
 
 .alignleft {
   float: left; }
