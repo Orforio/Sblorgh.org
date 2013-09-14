@@ -28,10 +28,11 @@ function sblorgh_scripts_styles() {
 //	wp_enqueue_script( 'sblorgh-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css', false, '2.1.3' );
 	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
+	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', false, '2.09' );
+	wp_enqueue_style( 'webfonts', 'http://fonts.googleapis.com/css?family=Gudea:400,700,400italic|Roboto:700', false);
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array(), '2013-09-08' );
+	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array('normalize', 'genericons', 'webfonts'), '2013-09-08' );
 
 	// Loads the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'sblorgh-ie', get_template_directory_uri() . '/css/ie.css', array( 'sblorgh-style' ), '2013-07-18' );
@@ -84,11 +85,11 @@ function sblorgh_paging_nav() {
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
 		<div class="nav-links">
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( 'Older posts <div class="meta-nav genericon genericon-rightarrow"></div>' ); ?></div>
-			<?php endif; ?>
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( '<div class="meta-nav genericon genericon-leftarrow"></div> Newer posts' ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( ' Newer posts' ); ?></div>
+			<?php endif; ?>
+			<?php if ( get_next_posts_link() ) : ?>
+			<div class="nav-previous"><?php next_posts_link( 'Older posts ' ); ?></div>
 			<?php endif; ?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -116,10 +117,12 @@ function sblorgh_post_nav() {
 	?>
 	<nav class="navigation post-navigation" role="navigation">
 		<div class="nav-links">
-
-			<?php previous_post_link( '%link', '<div class="meta-nav genericon genericon-leftarrow"></div> %title' ); ?>
-			<?php next_post_link( '%link', '%title <div class="meta-nav genericon genericon-rightarrow"></div>' ); ?>
-
+			<?php if ( $previous ) : ?>
+			<div class="nav-next"><?php previous_post_link( '%link', ' %title', true ); ?></div>
+			<?php endif; ?>
+			<?php if ( $next ) : ?>
+			<div class="nav-previous"><?php next_post_link( '%link', '%title ', true ); ?></div>
+			<?php endif; ?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php

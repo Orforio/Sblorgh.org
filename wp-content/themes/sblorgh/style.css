@@ -7,7 +7,7 @@ Description: The sblorgh.org theme.
 Version: 0.3
 Tags: gray, two-columns, right-sidebar
 */
-.date a:before, .comments-link a:before, .edit-link a:before, .categories-links a:first-child:before, .tags-links a:first-child:before {
+.date a:before, .comments-link a:before, .edit-link a:before, .nav-next a:before, .nav-previous a:after, .categories-links a:first-child:before, .tags-links a:first-child:before {
   display: inline-block;
   font: normal 16px/1 "Genericons";
   vertical-align: text-bottom; }
@@ -19,7 +19,7 @@ body {
   background-color: #222222;
   color: #222222;
   line-height: 1.5;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Gudea', Helvetica, Arial, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased; }
 
@@ -29,6 +29,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   margin: 0;
   clear: both; }
 
@@ -88,10 +89,10 @@ a {
       color: #ffffff; }
       .page-header .header-text h1.site-title a {
         color: #ffffff;
-        -webkit-transition: all 0.2s linear;
-        -moz-transition: all 0.2s linear;
-        -o-transition: all 0.2s linear;
-        transition: all 0.2s linear; }
+        -webkit-transition: color 0.2s linear;
+        -moz-transition: color 0.2s linear;
+        -o-transition: color 0.2s linear;
+        transition: color 0.2s linear; }
         .page-header .header-text h1.site-title a:hover, .page-header .header-text h1.site-title a:focus {
           color: rgba(255, 255, 255, 0.8); }
 
@@ -129,7 +130,7 @@ a {
       background-color: #00cccc; }
     .menu-right li:nth-child(6) a:hover, .menu-right li:nth-child(6) a:focus {
       background-color: #333399; }
-    .menu-right li.current-menu-item a {
+    .menu-right li.current-menu-item a, .menu-right li.current-post-ancestor a {
       color: #000000;
       background-color: #ffffff; }
     .menu-right li a {
@@ -156,6 +157,9 @@ a {
   width: 1000px;
   margin: 0 auto 0 auto;
   position: relative; }
+  .main-container article {
+    border-bottom: 1px solid #222222;
+    margin-bottom: 5px; }
 
 .main-content {
   width: 800px;
@@ -201,6 +205,10 @@ a {
   content: "\f300"; }
 .edit-link a:before {
   content: "\f411"; }
+.nav-next a:before {
+  content: "\f430"; }
+.nav-previous a:after {
+  content: "\f429"; }
 .categories-links a:first-child:before {
   content: "\f301"; }
 .tags-links a:first-child:before {
@@ -217,6 +225,28 @@ a {
     color: #3c3c3c; }
   .entry-content a:active {
     color: #555555; }
+
+.paging-navigation a,
+.post-navigation a {
+  font-style: bold;
+  color: #888888;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+  .paging-navigation a:hover, .paging-navigation a:focus,
+  .post-navigation a:hover,
+  .post-navigation a:focus {
+    color: #555555; }
+  .paging-navigation a:active,
+  .post-navigation a:active {
+    color: #222222; }
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+  float: left; }
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+  float: right; }
 
 .alignleft {
   float: left; }
@@ -256,3 +286,13 @@ img.alignnone {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+  .page-footer a {
+    color: white;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear; }
+    .page-footer a:hover, .page-footer a:focus {
+      color: #999999; }
+    .page-footer a:active {
+      color: #222222; }

@@ -43,7 +43,7 @@ body {
 	background-color: $page-background;
 	color: $text-colour;
 	line-height: 1.5;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: 'Gudea', Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -54,6 +54,7 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: 'Roboto', Helvetica, Arial, sans-serif;
 	margin: 0;
 	clear: both;
 }
@@ -132,7 +133,7 @@ a {
 			
 			a {
 				color: #ffffff;
-				@include transition();
+				@include transition(color);
 				
 				&:hover,
 				&:focus {
@@ -180,7 +181,8 @@ a {
 			}
 		}
 		
-		&.current-menu-item a {
+		&.current-menu-item a,
+		&.current-post-ancestor a {
 			color: #000000;
 			background-color: #ffffff;
 		}
@@ -219,6 +221,11 @@ a {
 .main-container {
 	@include page-container;
 	position: relative;
+	
+	article {
+		border-bottom: 1px solid $page-background;
+		margin-bottom: 5px;
+	}
 }
 
 .main-content {
@@ -289,6 +296,19 @@ a {
     		@extend %genericons;
     		content: "\f411";
     	}
+    	
+    	.nav-next & {
+	    	@extend %genericons;
+	    	content: "\f430"; //\f503
+    	}
+    }
+    
+    &:after {
+	    
+	    .nav-previous & {
+	    	@extend %genericons;
+	    	content: "\f429"; //\f501
+    	}
     }
     
     &:first-child:before {
@@ -310,7 +330,6 @@ a {
 	a {
 		color: darken($text-colour, 20%);
 		text-decoration: underline;
-//		text-shadow: 1px 1px 0px $text-colour, -1px -1px 0px lighten($text-colour, 20%);
 		@include transition();
 		
 		&:hover,
@@ -321,6 +340,33 @@ a {
 		&:active {
 			color: lighten($text-colour, 20%);
 		}
+	}
+}
+
+.paging-navigation,
+.post-navigation {
+	
+	a {
+		font-style: bold;
+		color: lighten($text-colour, 40%);
+		@include transition();
+		
+		&:hover,
+		&:focus {
+			color: lighten($text-colour, 20%);
+		}
+		
+		&:active {
+			color: $text-colour;
+		}
+	}
+	
+	.nav-next {
+		float: left;
+	}
+	
+	.nav-previous {
+		float: right;
 	}
 }
 
@@ -374,4 +420,18 @@ img.alignnone {
 	color: $content-background;
 	padding: 0 0 0 ($content-gutter + $content-padding);
 	@include box-sizing;
+	
+	a {
+		color: lighten($content-background, 20%);
+		@include transition();
+		
+		&:hover,
+		&:focus {
+			color: darken($content-background, 20%);
+		}
+		
+		&:active {
+			color: $text-colour;
+		}
+	}
 }
