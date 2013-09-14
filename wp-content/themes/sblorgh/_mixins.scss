@@ -31,3 +31,10 @@
 	-o-transition: $property $duration $timing;
 	transition: $property $duration $timing;
 }
+
+@mixin rotate($amount: 6deg) {
+	-webkit-transform: rotate($amount);
+	-moz-transform: rotate($amount);
+	-o-transform: rotate($amount);
+	transform: rotate($amount);
+}

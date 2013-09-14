@@ -55,12 +55,30 @@ h4,
 h5,
 h6 {
 	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	line-height: 1;
 	margin: 0;
 	clear: both;
 }
 
 a {
 	text-decoration: none;
+}
+
+.error {
+	
+	h1 {
+		font-size: 360px;
+		@include rotate();
+	}
+	
+	h2 {
+		margin: -50px 0 0 0;
+		@include rotate(-6deg);
+	}
+	
+	p {
+		margin: 40px 0 0 0;
+	}
 }
 
 .screen-reader-text {
