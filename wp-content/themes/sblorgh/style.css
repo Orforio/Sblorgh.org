@@ -30,20 +30,25 @@ h4,
 h5,
 h6 {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  line-height: 1;
   margin: 0;
   clear: both; }
 
 a {
   text-decoration: none; }
 
+ul,
+ol {
+  padding-left: 30px; }
+
 .error h1 {
+  line-height: 1;
   font-size: 360px;
   -webkit-transform: rotate(6deg);
   -moz-transform: rotate(6deg);
   -o-transform: rotate(6deg);
   transform: rotate(6deg); }
 .error h2 {
+  line-height: 1;
   margin: -50px 0 0 0;
   -webkit-transform: rotate(-6deg);
   -moz-transform: rotate(-6deg);
@@ -51,6 +56,15 @@ a {
   transform: rotate(-6deg); }
 .error p {
   margin: 40px 0 0 0; }
+
+.genericon-icon-button {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 64px;
+  width: 64px;
+  font-size: 60px;
+  text-decoration: none;
+  text-align: center; }
 
 .screen-reader-text {
   position: absolute !important;
@@ -98,6 +112,7 @@ a {
     bottom: -21px;
     right: -2px; }
     .page-header .header-text h1.site-title {
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 140px;
       font-weight: bold;
       letter-spacing: -7px;
@@ -128,6 +143,7 @@ a {
     padding: 0 0 10px 0;
     margin: 0; }
   .menu-right li {
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 28px;
     font-weight: bold;
     text-align: right;
@@ -173,9 +189,6 @@ a {
   width: 1000px;
   margin: 0 auto 0 auto;
   position: relative; }
-  .main-container article {
-    border-bottom: 1px solid #222222;
-    margin-bottom: 5px; }
 
 .main-content {
   width: 800px;
@@ -201,7 +214,9 @@ a {
       text-shadow: 0px 1px 0px #555555, 0px 2px 1px #888888; }
 
 .entry-meta {
-  font-size: 14px; }
+  font-size: 14px;
+  color: #888888;
+  clear: both; }
   .entry-meta a {
     color: #888888;
     -webkit-transition: all 0.2s linear;
@@ -230,39 +245,66 @@ a {
 .tags-links a:first-child:before {
   content: "\f302"; }
 
-.entry-content a {
+article {
+  border-top: 1px solid #222222;
+  margin-bottom: 5px; }
+  article:first-child, article:only-child {
+    border: none; }
+
+.entry-content a,
+.page-content a {
   color: black;
   text-decoration: underline;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear; }
-  .entry-content a:hover, .entry-content a:focus {
+  .entry-content a:hover, .entry-content a:focus,
+  .page-content a:hover,
+  .page-content a:focus {
     color: #3c3c3c; }
-  .entry-content a:active {
+  .entry-content a:active,
+  .page-content a:active {
     color: #555555; }
+  .entry-content a img,
+  .page-content a img {
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear; }
+    .entry-content a img:hover, .entry-content a img:focus,
+    .page-content a img:hover,
+    .page-content a img:focus {
+      opacity: 0.8; }
+    .entry-content a img:active,
+    .page-content a img:active {
+      opacity: 0.6; }
 
-.paging-navigation a,
-.post-navigation a {
-  font-style: bold;
-  color: #888888;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear; }
-  .paging-navigation a:hover, .paging-navigation a:focus,
-  .post-navigation a:hover,
-  .post-navigation a:focus {
-    color: #555555; }
-  .paging-navigation a:active,
-  .post-navigation a:active {
-    color: #222222; }
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-  float: left; }
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-  float: right; }
+.paging-navigation,
+.post-navigation {
+  border-top: 1px solid #222222;
+  padding-top: 5px; }
+  .paging-navigation a,
+  .post-navigation a {
+    font-style: bold;
+    color: #888888;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear; }
+    .paging-navigation a:hover, .paging-navigation a:focus,
+    .post-navigation a:hover,
+    .post-navigation a:focus {
+      color: #555555; }
+    .paging-navigation a:active,
+    .post-navigation a:active {
+      color: #222222; }
+  .paging-navigation .nav-next,
+  .post-navigation .nav-next {
+    float: left; }
+  .paging-navigation .nav-previous,
+  .post-navigation .nav-previous {
+    float: right; }
 
 .alignleft {
   float: left; }
@@ -292,6 +334,9 @@ img.aligncenter {
 
 img.alignnone {
   margin: 5px 0; }
+
+.wp-caption-text {
+  margin-top: 0; }
 
 .page-footer {
   width: 1000px;

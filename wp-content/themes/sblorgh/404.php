@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<div class="entry-content">
+	<div class="page-content">
 		<div class="error" role="main">
 			<h1>404</h1>
 			<h2>Content not found</h2>

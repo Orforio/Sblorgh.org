@@ -55,7 +55,6 @@ h4,
 h5,
 h6 {
 	font-family: 'Roboto', Helvetica, Arial, sans-serif;
-	line-height: 1;
 	margin: 0;
 	clear: both;
 }
@@ -64,14 +63,21 @@ a {
 	text-decoration: none;
 }
 
+ul,
+ol {
+	padding-left: 30px;
+}
+
 .error {
 	
 	h1 {
+		line-height: 1;
 		font-size: 360px;
 		@include rotate();
 	}
 	
 	h2 {
+		line-height: 1;
 		margin: -50px 0 0 0;
 		@include rotate(-6deg);
 	}
@@ -79,6 +85,16 @@ a {
 	p {
 		margin: 40px 0 0 0;
 	}
+}
+
+.genericon-icon-button {
+	background-color: #ffffff;
+	border-radius: 10px;
+	height: 64px;
+	width: 64px;
+	font-size: 60px;
+	text-decoration: none;
+	text-align: center;
 }
 
 .screen-reader-text {
@@ -143,6 +159,7 @@ a {
 		right: -2px;
 		
 		h1.site-title {
+			font-family: Helvetica, Arial, sans-serif;
 			font-size: 140px;
 			font-weight: bold;
 			letter-spacing: -7px;
@@ -184,6 +201,7 @@ a {
 	}
 	
 	li {
+		font-family: Helvetica, Arial, sans-serif;
 		font-size: 28px;
 		font-weight: bold;
 //		color: #ffffff;
@@ -239,11 +257,6 @@ a {
 .main-container {
 	@include page-container;
 	position: relative;
-	
-	article {
-		border-bottom: 1px solid $page-background;
-		margin-bottom: 5px;
-	}
 }
 
 .main-content {
@@ -276,6 +289,8 @@ a {
 
 .entry-meta {
 	font-size: 14px;
+	color: lighten($text-colour, 40%);
+	clear: both;
 	
 	a {
 		color: lighten($text-colour, 40%);
@@ -343,7 +358,18 @@ a {
     }
 }
 
-.entry-content {
+article {
+	border-top: 1px solid $page-background;
+	margin-bottom: 5px;
+	
+	&:first-child,
+	&:only-child {
+		border: none;
+	}
+}
+
+.entry-content,
+.page-content {
 
 	a {
 		color: darken($text-colour, 20%);
@@ -358,11 +384,26 @@ a {
 		&:active {
 			color: lighten($text-colour, 20%);
 		}
+		
+		img {		
+			@include transition(opacity);
+			
+			&:hover,
+			&:focus {
+				opacity: 0.8;
+			}
+			
+			&:active {
+				opacity: 0.6;
+			}
+		}
 	}
 }
 
 .paging-navigation,
 .post-navigation {
+	border-top: 1px solid $page-background;
+	padding-top: 5px;
 	
 	a {
 		font-style: bold;
@@ -426,6 +467,10 @@ img.aligncenter {
 
 img.alignnone {
 	margin: 5px 0;
+}
+
+.wp-caption-text {
+	margin-top: 0;
 }
 
 // *****

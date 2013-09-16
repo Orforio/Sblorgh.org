@@ -26,6 +26,7 @@ add_action( 'after_setup_theme', 'sblorgh_setup' );
 function sblorgh_scripts_styles() {
 	// Loads JavaScript file with functionality specific to Twenty Thirteen.
 //	wp_enqueue_script( 'sblorgh-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
+	wp_enqueue_script( 'retinajs', get_template_directory_uri() . '/js/retina.js', false, '1.0.1', true);
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css', false, '2.1.3' );
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', false, '2.09' );
@@ -97,14 +98,10 @@ function sblorgh_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'sblorgh_post_nav' ) ) :
 /**
  * Displays navigation to next/previous post when applicable.
-*
-* @since Twenty Thirteen 1.0
-*
-* @return void
-*/
+ */
+if ( ! function_exists( 'sblorgh_post_nav' ) ) :
 function sblorgh_post_nav() {
 	global $post;
 
@@ -129,51 +126,35 @@ function sblorgh_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'sblorgh_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
  */
+if ( ! function_exists( 'sblorgh_entry_meta' ) ) :
 function sblorgh_entry_meta() {
 	if ( is_sticky() && is_home() && ! is_paged() )
-		echo '<span class="featured-post">' . __( 'Sticky', 'sblorgh' ) . '</span>';
+		echo '<span class="featured-post">' . 'Sticky' . '</span>';
 
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
 		sblorgh_entry_date();
 
 	// Translators: used between list items, there is a space after the comma.
-	$categories_list = get_the_category_list( __( ', ', 'sblorgh' ) );
+	$categories_list = get_the_category_list( ', ' );
 	if ( $categories_list ) {
 		echo '<span class="categories-links">' . $categories_list . '</span>';
 	}
 
 	// Translators: used between list items, there is a space after the comma.
-	$tag_list = get_the_tag_list( '', __( ', ', 'sblorgh' ) );
+	$tag_list = get_the_tag_list( '', ', ' );
 	if ( $tag_list ) {
 		echo '<span class="tags-links">' . $tag_list . '</span>';
 	}
-/*
-	// Post author
-	if ( 'post' == get_post_type() ) {
-		printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'sblorgh' ), get_the_author() ) ),
-			get_the_author()
-		);
-	}*/
 }
 endif;
 
-if ( ! function_exists( 'sblorgh_entry_date' ) ) :
 /**
  * Prints HTML with date information for current post.
- *
- * Create your own sblorgh_entry_date() to override in a child theme.
- *
- * @since Twenty Thirteen 1.0
- *
- * @param boolean $echo Whether to echo the date. Default true.
- * @return string The HTML-formatted post date.
  */
+if ( ! function_exists( 'sblorgh_entry_date' ) ) :
 function sblorgh_entry_date( $echo = true ) {
 	if ( has_post_format( array( 'chat', 'status' ) ) )
 		$format_prefix = _x( '%1$s on %2$s', '1: post format name. 2: date', 'sblorgh' );
@@ -253,14 +234,6 @@ endif;
 /**
  * Returns the URL from the post.
  *
- * @uses get_url_in_content() to get the URL in the post meta (if it exists) or
- * the first link found in the post content.
- *
- * Falls back to the post permalink if no URL is found in the post.
- *
- * @since Twenty Thirteen 1.0
- *
- * @return string The Link format URL.
  */
 function sblorgh_get_link_url() {
 	$content = get_the_content();
@@ -268,29 +241,6 @@ function sblorgh_get_link_url() {
 
 	return ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
 }
-
-
-/**
- * Loads stylesheets and scripts
- */
-/*function sblorgh_load_scripts_styles() {
-	wp_enqueue_style('sblorgh-style', get_stylesheet_uri());
-	wp_enqueue_script( 'retina', get_template_directory_uri() . '/js/retina.js', false, false, true);
-}
-add_action('wp_enqueue_scripts', 'sblorgh_load_scripts_styles');*/
-
-/**
- * Registers sidebar
- */
-/*register_sidebar(array(
-  'name' => 'Right Sidebar',
-  'id' => 'sidebar-1',
-  'description' => 'The right-hand sidebar.',
-  'before_title' => '',
-  'after_title' => '',
-  'before_widget' => '<ul>',
-  'after_widget' => '</ul>'
-));*/
 
 /**
  * Changes the number of posts displayed on homepage
