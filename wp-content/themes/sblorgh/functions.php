@@ -14,8 +14,8 @@ function sblorgh_setup() {
 	 * This theme uses a custom image size for featured images, displayed on
 	 * "standard" posts and pages.
 	 */
-	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 604, 270, true );
+//	add_theme_support( 'post-thumbnails' );
+//	set_post_thumbnail_size( 604, 270, true );
 }
 add_action( 'after_setup_theme', 'sblorgh_setup' );
 
