@@ -176,14 +176,21 @@ ol {
         color: #000000; }
       .menu-right li a:active {
         background-color: #ffffff !important; }
+  .menu-right .search-form {
+    margin: 5px 0 5px 0;
+    border-bottom: 1px solid #222222; }
   .menu-right .search-field {
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 28px;
-    color: #ffffff;
     font-weight: bold;
     text-align: right;
+    line-height: 1;
+    color: #ffffff;
     background-color: #444444;
     border: none;
     width: 165px; }
+  .menu-right .search-submit {
+    display: none; }
 
 .main-container {
   width: 1000px;
