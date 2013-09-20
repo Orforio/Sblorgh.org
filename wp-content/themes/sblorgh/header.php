@@ -32,8 +32,19 @@
 	</header>
 	
 	<div class="main-container">
-		<nav class="menu-right">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+		<nav class="menu-sidebar">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+			<div class="menu-sidebar-search">
 				<?php get_search_form(); ?>
+			</div>
+			<div class="menu-sidebar-buttons">
+				<ul>
+					<li><a href='https://alpha.app.net/pkeruno' class='adn-button' target='_blank' data-type='follow' data-width='165' data-height='27' data-user-id='@pkeruno' data-show-username='1' rel='me'>Follow me on App.net</a><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script></li>
+					<li><a href="https://github.com/PkerUNO"><i class="genericon genericon-icon-button genericon-github" title="GitHub">&nbsp;</i></a></li>
+					<li><a href="http://uk.linkedin.com/in/richardwhittaker/"><i class="genericon genericon-icon-button genericon-linkedin-alt" title="LinkedIn">&nbsp;</i></a></li>
+					<li><a href="http://www.flickr.com/photos/pkeruno/"><i class="genericon genericon-icon-button genericon-flickr" title="Flickr">&nbsp;</i></a></li>
+					
+				</ul>
+			</div>
 		</nav>
 		<section class="main-content group">

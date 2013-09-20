@@ -66,6 +66,10 @@ a {
 ul,
 ol {
 	padding-left: 30px;
+	
+	li {
+		clear: both;
+	}
 }
 
 .error {
@@ -89,12 +93,25 @@ ol {
 
 .genericon-icon-button {
 	background-color: #ffffff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
 	border-radius: 10px;
 	height: 64px;
 	width: 64px;
 	font-size: 60px;
 	text-decoration: none;
 	text-align: center;
+	
+	.menu-sidebar & {
+		background-color: inherit;
+		color: inherit;
+		height: 32px;
+		width: 32px;
+		font-size: 32px;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
 }
 
 .screen-reader-text {
@@ -183,7 +200,7 @@ ol {
 // Navigation
 // *****
 
-.menu-right {
+.menu-sidebar {
 	width: $menu-width;
 	background-color: #444444;
 	padding: 40px $content-padding $content-padding $content-padding;
@@ -194,68 +211,110 @@ ol {
 	
 	ul {
 		list-style-type: none;
-		border-bottom: 1px solid $page-background;
-		padding: 0 0 $content-padding 0;
-		margin: 0;
+		padding: 0;
+	    margin: 0;
 	}
 	
-	li {
-		font-family: Helvetica, Arial, sans-serif;
-		font-size: 28px;
-		font-weight: bold;
-		text-align: right;
-		line-height: 1;
-		width: 100%;
-		display: inline-block;
+	.menu-sidebar-menu-container {
+		border-bottom: 1px solid $page-background;
+		padding: 0 0 $content-padding 0;
+	}
+	
+	.nav-menu {
 		
-		@for $i from 1 through length($themes) {
-			&:nth-child(#{$i}) a:hover,
-			&:nth-child(#{$i}) a:focus {
-				background-color: nth($themes, $i);
+		li {
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 28px;
+			font-weight: bold;
+			text-align: right;
+			line-height: 1;
+			width: 100%;
+			display: inline-block;
+			
+			@for $i from 1 through length($themes) {
+				&:nth-child(#{$i}) a:hover,
+				&:nth-child(#{$i}) a:focus {
+					background-color: nth($themes, $i);
+				}
 			}
+			
+			&.current-menu-item a,
+			&.current-post-ancestor a {
+				color: #000000;
+				background-color: #ffffff;
+			}
+			
+			a {
+			    display: block;
+			    color: #ffffff;
+			    @include transition();
+			    
+			    &:hover,
+			    &:focus {
+				    color: #000000;
+			    }
+			    
+			    &:active {
+				    background-color: #ffffff !important;
+			    }
+			}
+		}	
+	}
+	
+	.menu-sidebar-search {
+		padding: $content-padding 0 $content-padding 0;
+		
+		.search-submit {
+			display: none;
 		}
 		
-		&.current-menu-item a,
-		&.current-post-ancestor a {
-			color: #000000;
-			background-color: #ffffff;
-		}
-		
-		a {
-		    display: block;
-		    color: #ffffff;
-		    @include transition();
-		    
-		    &:hover,
-		    &:focus {
-			    color: #000000;
-		    }
-		    
-		    &:active {
-			    background-color: #ffffff !important;
-		    }
+		.search-field {
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 28px;
+			font-weight: bold;
+			text-align: right;
+			line-height: 1;
+			color: #ffffff;
+			background-color: $menu-background;
+			border: none;
+			width: $menu-width - ($content-padding * 2);
 		}
 	}
 	
 	.search-form {
-		margin: $content-gutter 0 $content-gutter 0;
-		border-bottom: 1px solid $page-background;
+//		margin: $content-padding 0 $content-padding 0;
+		
+		//padding: $content-padding 0 0 0;
 	}
 	
-	.search-field {
-		font-family: Helvetica, Arial, sans-serif;
-		font-size: 28px;
-		font-weight: bold;
-		text-align: right;
-		line-height: 1;
-		color: #ffffff;
-		background-color: $menu-background;
-		border: none;
-		width: $menu-width - ($content-padding * 2);
-	}
-	
-	.search-submit {
-		display: none;
+	.menu-sidebar-buttons {
+		border-top: 1px solid $page-background;
+		padding: $content-padding 0 0 0;
+		
+		ul {
+		
+			text-align: right;
+			
+			li {
+				display: inline-block
+			}
+		}
+		
+		a {
+		    color: #ffffff;
+		    background-color: $menu-background;
+		    @include transition();
+		    
+		    &:hover,
+		    &:focus {
+		        color: $menu-background;
+		        background-color: #ffffff;
+		    }
+		    
+		    &:active {
+		        color: #000000;
+		    }
+		}
 	}
 }
 
