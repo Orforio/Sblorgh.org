@@ -4,7 +4,7 @@ Theme URI: http://www.sblorgh.org/
 Author: Richard Whittaker
 Author URI: http://www.sblorgh.org/
 Description: The sblorgh.org theme.
-Version: 0.3
+Version: 1.0
 Tags: gray, two-columns, right-sidebar
 */
 .date a:before, .comments-link a:before, .edit-link a:before, .nav-next a:before, .nav-previous a:after, .categories-links a:first-child:before, .tags-links a:first-child:before {
@@ -110,17 +110,17 @@ ol {
   -moz-box-shadow: 0px 5px 25px #222222;
   box-shadow: 0px 5px 25px #222222; }
   .page-header#header-red {
-    background-image: url(images/headers/header_red.jpg); }
+    background-image: url(images/header_red.jpg); }
   .page-header#header-orange {
-    background-image: url(images/headers/header_orange.jpg); }
+    background-image: url(images/header_orange.jpg); }
   .page-header#header-lightgreen {
-    background-image: url(images/headers/header_lightgreen.jpg); }
+    background-image: url(images/header_lightgreen.jpg); }
   .page-header#header-darkgreen {
-    background-image: url(images/headers/header_darkgreen.jpg); }
+    background-image: url(images/header_darkgreen.jpg); }
   .page-header#header-lightblue {
-    background-image: url(images/headers/header_lightblue.jpg); }
+    background-image: url(images/header_lightblue.jpg); }
   .page-header#header-darkblue {
-    background-image: url(images/headers/header_darkblue.jpg); }
+    background-image: url(images/header_darkblue.jpg); }
   .page-header .header-text {
     position: absolute;
     bottom: -21px;

@@ -5,7 +5,7 @@ Theme URI: http://www.sblorgh.org/
 Author: Richard Whittaker
 Author URI: http://www.sblorgh.org/
 Description: The sblorgh.org theme.
-Version: 0.3
+Version: 1.0
 Tags: gray, two-columns, right-sidebar
 */
 
@@ -32,7 +32,6 @@ $theme-darkblue: #333399;
 
 $themes: $theme-red, $theme-orange, $theme-lightgreen, $theme-darkgreen, $theme-lightblue, $theme-darkblue;
 
-//@import 'css/normalize.css';
 @import 'mixins';
 
 html {
@@ -152,22 +151,22 @@ ol {
 	@include box-shadow(0px 5px 25px $page-background);
 	
 	&#header-red {
-		background-image: url(images/headers/header_red.jpg);
+		background-image: url(images/header_red.jpg);
 	}
 	&#header-orange {
-		background-image: url(images/headers/header_orange.jpg);
+		background-image: url(images/header_orange.jpg);
 	}
 	&#header-lightgreen {
-		background-image: url(images/headers/header_lightgreen.jpg);
+		background-image: url(images/header_lightgreen.jpg);
 	}
 	&#header-darkgreen {
-		background-image: url(images/headers/header_darkgreen.jpg);
+		background-image: url(images/header_darkgreen.jpg);
 	}
 	&#header-lightblue {
-		background-image: url(images/headers/header_lightblue.jpg);
+		background-image: url(images/header_lightblue.jpg);
 	}
 	&#header-darkblue {
-		background-image: url(images/headers/header_darkblue.jpg);
+		background-image: url(images/header_darkblue.jpg);
 	}
 	
 	.header-text {

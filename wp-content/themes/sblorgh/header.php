@@ -25,8 +25,7 @@
 	<header class="page-header" id="<?php sblorgh_randomise_header(); ?>">
 		<div class="header-text">   
 			<h1 class="site-title">
-				<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<?php bloginfo( 'name' ); ?></a>
+				<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">sblorgh.</a>
 			</h1>
 		</div>
 	</header>

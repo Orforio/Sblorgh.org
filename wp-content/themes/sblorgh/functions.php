@@ -9,13 +9,6 @@ function sblorgh_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary', 'Sidebar Menu' );
-
-	/*
-	 * This theme uses a custom image size for featured images, displayed on
-	 * "standard" posts and pages.
-	 */
-//	add_theme_support( 'post-thumbnails' );
-//	set_post_thumbnail_size( 604, 270, true );
 }
 add_action( 'after_setup_theme', 'sblorgh_setup' );
 
@@ -24,16 +17,12 @@ add_action( 'after_setup_theme', 'sblorgh_setup' );
  *
  */
 function sblorgh_scripts_styles() {
-	// Loads JavaScript file with functionality specific to Twenty Thirteen.
-//	wp_enqueue_script( 'sblorgh-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
 	wp_enqueue_script( 'retinajs', get_template_directory_uri() . '/js/retina.js', false, '1.0.1', true);
+	wp_enqueue_script( 'html5', get_template_directory_uri() . '/js/html5.js', false, '3.6', true);
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css', false, '2.1.3' );
-	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', false, '2.09' );
 	wp_enqueue_style( 'webfonts', 'http://fonts.googleapis.com/css?family=Gudea:400,700,400italic|Roboto:700', false);
-
-	// Loads our main stylesheet.
-	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array('normalize', 'genericons', 'webfonts'), '2013-09-08' );
+	wp_enqueue_style( 'sblorgh-style', get_stylesheet_uri(), array('normalize', 'genericons', 'webfonts'), '2013-09-21' );
 
 	// Loads the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'sblorgh-ie', get_template_directory_uri() . '/css/ie.css', array( 'sblorgh-style' ), '2013-07-18' );
@@ -137,13 +126,11 @@ function sblorgh_entry_meta() {
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
 		sblorgh_entry_date();
 
-	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( ', ' );
 	if ( $categories_list ) {
 		echo '<span class="categories-links">' . $categories_list . '</span>';
 	}
 
-	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', ', ' );
 	if ( $tag_list ) {
 		echo '<span class="tags-links">' . $tag_list . '</span>';
@@ -172,62 +159,6 @@ function sblorgh_entry_date( $echo = true ) {
 		echo $date;
 
 	return $date;
-}
-endif;
-
-if ( ! function_exists( 'sblorgh_the_attached_image' ) ) :
-/**
- * Prints the attached image with a link to the next attached image.
- *
- * @since Twenty Thirteen 1.0
- *
- * @return void
- */
-function sblorgh_the_attached_image() {
-	$post                = get_post();
-	$attachment_size     = apply_filters( 'sblorgh_attachment_size', array( 724, 724 ) );
-	$next_attachment_url = wp_get_attachment_url();
-
-	/**
-	 * Grab the IDs of all the image attachments in a gallery so we can get the URL
-	 * of the next adjacent image in a gallery, or the first image (if we're
-	 * looking at the last image in a gallery), or, in a gallery of one, just the
-	 * link to that image file.
-	 */
-	$attachment_ids = get_posts( array(
-		'post_parent'    => $post->post_parent,
-		'fields'         => 'ids',
-		'numberposts'    => -1,
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image',
-		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID'
-	) );
-
-	// If there is more than 1 attachment in a gallery...
-	if ( count( $attachment_ids ) > 1 ) {
-		foreach ( $attachment_ids as $attachment_id ) {
-			if ( $attachment_id == $post->ID ) {
-				$next_id = current( $attachment_ids );
-				break;
-			}
-		}
-
-		// get the URL of the next image attachment...
-		if ( $next_id )
-			$next_attachment_url = get_attachment_link( $next_id );
-
-		// or get the URL of the first image attachment.
-		else
-			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
-	}
-
-	printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
-		esc_url( $next_attachment_url ),
-		the_title_attribute( array( 'echo' => false ) ),
-		wp_get_attachment_image( $post->ID, $attachment_size )
-	);
 }
 endif;
 
