@@ -73,7 +73,7 @@ function sblorgh_paging_nav() {
 	if ( $wp_query->max_num_pages < 2 )
 		return;
 	?>
-	<nav class="navigation paging-navigation" role="navigation">
+	<nav class="navigation paging-navigation group" role="navigation">
 		<div class="nav-links">
 			<?php if ( get_previous_posts_link() ) : ?>
 			<div class="nav-next"><?php previous_posts_link( ' Newer posts' ); ?></div>
@@ -101,7 +101,7 @@ function sblorgh_post_nav() {
 	if ( ! $next && ! $previous )
 		return;
 	?>
-	<nav class="navigation post-navigation" role="navigation">
+	<nav class="navigation post-navigation group" role="navigation">
 		<div class="nav-links">
 			<?php if ( $previous ) : ?>
 			<div class="nav-next"><?php previous_post_link( '%link', ' %title', true ); ?></div>
