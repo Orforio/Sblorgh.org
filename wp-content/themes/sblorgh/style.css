@@ -39,8 +39,8 @@ a {
 ul,
 ol {
   padding-left: 30px; }
-  ul li,
-  ol li {
+  ul.clearlist li,
+  ol.clearlist li {
     clear: both; }
 
 .error h1 {
